@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cipher Puzzle</title>
+    <style>
+        body {
+            background-color: #f0f5f9; /* Light pastel blue background */
+            color: #2c3e50; /* Dark grayish blue text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3498db; /* Pastel blue header */
+            padding: 10px;
+        }
+
+        h1 {
+            color: #ffffff; /* White header text color */
+            margin: 0;
+            font-size: 2em; /* Increase font size for header */
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #3498db; /* Pastel blue footer */
+            color: #ffffff; /* White footer text color */
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #cipher-puzzle {
+            background-color: #aed6f1; /* Light pastel blue-gray puzzle background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #2c3e50; /* Dark grayish blue text color */
+        }
+
+        button {
+            background-color: #2ecc71; /* Pastel green button color */
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #27ae60; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Birthday Cipher Puzzle</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to the Birthday Cipher Challenge!</h2>
+        <p>Can you decipher the hidden birthday message below?</p>
+
+        <!-- Cipher Puzzle Content -->
+        <div id="cipher-puzzle">
+            <p>Cipher Text: <span id="cipher-text">Hbd lv d jnvbqy xmtc!</span></p>
+            <p>Your Answer: <input type="text" id="user-answer" placeholder="Type your answer here"></p>
+            <button onclick="checkAnswer()">Check Answer</button>
+            <p id="result"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Happy Birthday! 🎉</p>
+    </footer>
+
+  <script>
+      function checkAnswer() {
+          // Get user's answer
+          var userAnswer = document.getElementById("user-answer").value.toLowerCase();
+
+          // Check if the answer is correct
+          if (userAnswer === "hbd is a joyful day!") {
+              document.getElementById("result").innerHTML = "Congratulations! You've solved the puzzle!";
+
+              // Redirect to a different page after a brief delay (e.g., 2 seconds)
+              setTimeout(function() {
+                  window.location.href = "success_page.html";
+              }, 2000);
+          } else {
+              document.getElementById("result").innerHTML = "Sorry, try again.";
+          }
+      }
+  </script>
+</body>
+</html>

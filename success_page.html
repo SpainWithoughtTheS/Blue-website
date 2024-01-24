@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+    <style>
+        body {
+            background-color: #f3f3f3; /* Light gray background */
+            color: #333; /* Dark gray text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Align content vertically */
+            height: 100vh;
+        }
+
+        h1 {
+            color: #27ae60; /* Dark green header text color */
+            margin-bottom: 20px;
+        }
+
+        section {
+            max-width: 600px; /* Limit the width of the game section */
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #3498db; /* Pastel blue button color */
+            color: #ffffff; /* White text color */
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%; /* Take full width of the container */
+            box-sizing: border-box; /* Include padding and border in the width */
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            input[type="text"] {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="congratulations">Congratulations! You're Almost there!</h1>
+
+    <section>
+        <h2>About the Game</h2>
+        <p>Welcome to the Birthday Cipher Challenge! To continue the celebration, I have a fun word puzzle for you, Arianne. Unscramble the word below:</p>
+
+        <!-- Replace the scrambled word below with a new one -->
+        <p>Scrambled Word: <strong id="heat">teah</strong></p>
+
+        <input type="text" id="user-answer" placeholder="Type your answer here">
+        <button onclick="runGame()">Play Game</button>
+    </section>
+
+   <script>
+    function runGame() {
+        // Get user's answer
+        var userAnswerElement = document.getElementById("user-answer");
+
+        if (userAnswerElement) {
+            var userAnswer = userAnswerElement.value.toLowerCase();
+            console.log("User Answer:", userAnswer);
+
+            // Replace the logic below with your server-side validation
+            if (userAnswer === "heat") {
+                // Redirect to success page if the answer is correct
+                window.location.href = "success_page0.html";
+            } else {
+                alert("Sorry, you didn't win the game. Try again!");
+            }
+        } else {
+            console.error("Element with ID 'user-answer' not found.");
+        }
+    }
+</script>
+</body>
+</html>

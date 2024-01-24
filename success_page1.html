@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <style>
+        body {
+            background-color: #27ae60; /* Dark green background */
+            color: #ffffff; /* White text color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; /* Align content vertically */
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #3498db; /* Pastel blue button color */
+            color: #ffffff; /* White text color */
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Congratulations!</h1>
+
+    <p>You successfully completed the Birthday Cipher Challenge. Well done, Arianne!</p>
+
+    <button onclick="redirectToHome()">Back to Home</button>
+    <button onclick="redirectToSurprise()">Surprise</button>
+
+    <script>
+        function redirectToHome() {
+            // Redirect to the home page
+            window.location.href = "index.html";
+        }
+
+        function redirectToSurprise() {
+            // Redirect to the home page
+            window.location.href = "success_page2.html";
+        }
+    </script>
+</body>
+</html>

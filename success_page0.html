@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+   
+    <style>
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        section {
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 200px; /* Adjust width as needed */
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p style="font-size: 12px;">Range: (0, 100]</p>
+    <input id="number" type="number" placeholder="Enter a number" style="font-size: 16px; border-radius: 5px;"><br>
+    <button id="submit" style="font-size: 18px; text-transform: uppercase; margin-top: 2px; cursor: pointer;">Submit</button><br>
+    <p id="attempts"></p>
+    <button id="reset" style="font-size: 12px; text-transform: uppercase;">New Game</button>
+    <button id="nextChallenge" style="font-size: 18px; background-color: #27ae60; color: #ffffff; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; margin-top: 20px; display: none;" onclick="startNextChallenge()">Next Challenge</button>
+    <script>
+        var goal = Math.floor(Math.random()*100) + 1;
+        var submit = document.getElementById("submit");
+        var reset = document.getElementById("reset");
+        var nextChallengeBtn = document.getElementById("nextChallenge");
+        var attempts = 0
+        document.getElementById("attempts").innerText = "Attempts: " + attempts;
+
+        submit.onclick = function() {
+            attempts++;
+            document.getElementById("attempts").innerText = "Attempts: " + attempts;
+            var number = document.getElementById("number").value;
+            if (number > 0 && number <= 100) {
+                if (number < goal) {
+                    alert("The goal is bigger!");
+                } else if (number > goal) {
+                    alert("The goal is smaller!");
+                } else if (number == goal) {
+                    alert("Good job! " + number + " is the goal.\n" + "You reached the goal in attempt " + attempts + ".");
+                    nextChallengeBtn.style.display = "block";
+                }
+            } else {
+                alert("The entered value is incorrect.");
+            }
+        }
+
+        reset.onclick = function() {
+            document.getElementById("number").value='';
+            window.location.reload();
+        }
+
+        function startNextChallenge() {
+            // Implement logic for the next challenge
+            window.location.href = "success_page1.html";
+            // You can add more logic or redirect to a new page
+            // For example, window.location.href = "next_challenge.html";
+        }
+    </script>
+</body>
+</html>
