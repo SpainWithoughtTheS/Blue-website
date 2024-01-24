@@ -81,7 +81,7 @@
 
         <!-- Cipher Puzzle Content -->
         <div id="cipher-puzzle">
-            <p>Cipher Text: <span id="cipher-text">Cymeef xo pwue ftetqay qey!</span></p>
+            <p>Cipher Text: <span id="cipher-text"> Cymeef xo pwue ftetqay qey!</span></p>
             <p>Your Answer: <input type="text" id="user-answer" placeholder="Type your answer here"></p>
             <button onclick="checkAnswer()">Check Answer</button>
             <p id="result"></p>
@@ -92,23 +92,23 @@
         <p>Happy Birthday! 🎉</p>
     </footer>
 
-  <script>
-      function checkAnswer() {
-          // Get user's answer
-          var userAnswer = document.getElementById("user-answer").value.toLowerCase();
+<script>
+    function checkAnswer() {
+        // Get user's answer and remove non-alphabetic characters
+        var userAnswer = document.getElementById("user-answer").value.replace(/[^a-zA-Z]/g, "").toLowerCase();
 
-          // Check if the answer is correct
-          if (userAnswer === "Cheers to your special day!") {
-              document.getElementById("result").innerHTML = "Congratulations! You've solved the puzzle!";
+        // Check if the answer is correct
+        if (userAnswer === "cheerstoyourspecialday") {
+            document.getElementById("result").innerHTML = "Congratulations! You've solved the puzzle!";
 
-              // Redirect to a different page after a brief delay (e.g., 2 seconds)
-              setTimeout(function() {
-                  window.location.href = "success_page.html";
-              }, 2000);
-          } else {
-              document.getElementById("result").innerHTML = "Sorry, try again.";
-          }
-      }
-  </script>
+            // Redirect to a different page after a brief delay (e.g., 2 seconds)
+            setTimeout(function() {
+                window.location.href = "success_page.html";
+            }, 2000);
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, try again.";
+        }
+    }
+</script>
 </body>
 </html>
